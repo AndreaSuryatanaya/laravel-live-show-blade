@@ -53,6 +53,7 @@
                                 <td>{{ $item->author }}</td>
                                 <td>{{ $item->year }}</td>
                                 <td>
+                                    <a href="/detail-book">Detail</a>
                                     <a href="/edit-book/{{ $item->id }}"
                                         class="text-blue-500 hover:text-blue-700">Edit</a>
                                     <form action="/delete-book/{{ $item->id }}" method="POST"
