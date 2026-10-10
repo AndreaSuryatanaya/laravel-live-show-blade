@@ -100,6 +100,13 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Cari buku by ID
+        $book = Book::findOrFail($id);
+
+        // Hapus data buku
+        $book->delete();
+
+        // Kembalikan ke halaman index
+        return redirect()->route('book.index')->with('success', 'Success deleted data book');
     }
 }

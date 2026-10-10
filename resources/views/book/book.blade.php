@@ -55,8 +55,13 @@
                                 <td>
                                     <a href="/edit-book/{{ $item->id }}"
                                         class="text-blue-500 hover:text-blue-700">Edit</a>
-                                    | <a href="/delete-book/{{ $item->id }}"
-                                        class="text-red-500 hover:text-red-700">Delete</a>
+                                    <form action="/delete-book/{{ $item->id }}" method="POST"
+                                        style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        {{-- tambahkan alert untuk yakin delete --}}
+                                        <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
