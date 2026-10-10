@@ -52,7 +52,12 @@
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->author }}</td>
                                 <td>{{ $item->year }}</td>
-                                <td>Edit | Delete</td>
+                                <td>
+                                    <a href="/edit-book/{{ $item->id }}"
+                                        class="text-blue-500 hover:text-blue-700">Edit</a>
+                                    | <a href="/delete-book/{{ $item->id }}"
+                                        class="text-red-500 hover:text-red-700">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

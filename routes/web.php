@@ -12,3 +12,7 @@ Route::get('/login', [AuthController::class, 'login']);
 
 // bisa kita panggil name nya di View
 Route::get('/book', [BookController::class, 'index'])->name('book.index');
+Route::get('/create-book', [BookController::class, 'create'])->name('book.create');
+Route::post('/create-book', [BookController::class, 'store'])->name('book.store');
+Route::get('/edit-book/{id}', [BookController::class, 'edit'])->name('book.edit');
+Route::put('/edit-book/{id}', [BookController::class, 'update'])->name('book.update');

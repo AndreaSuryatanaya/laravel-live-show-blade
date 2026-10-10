@@ -22,7 +22,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        // untuk ke form create
+        return view('book.create-book');
     }
 
     /**
@@ -30,7 +31,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // buat validasi
+        $validated = $request->validate([
+            'title' => 'required|min:3',
+            'author' => 'required|min:3',
+            'year' => 'required'
+        ]);
+
+        // create data baru ke database
+        Book::create($validated);
+
+        // kalau berhasil menuju halaman book.index
+        return redirect()->route('book.create')->with('success', 'Success create book');
     }
 
     /**
@@ -38,15 +50,27 @@ class BookController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $book = Book::findOrFail($id); //Cari data by ID
+        return view('book.show-book', compact('book'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
+    // public function edit(string $id)
+    // {
+    //     // $book = Book::findOrFail($id); //Cari data by ID
+
+    //     return view('book.edit-book', compact('book'));
+    // }
+
     public function edit(string $id)
     {
-        //
+        $book = Book::findOrFail($id);
+
+        return view('book.edit-book', [
+            'book' => $book
+        ]);
     }
 
     /**
@@ -54,7 +78,21 @@ class BookController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // 1. validasi
+        $validated = $request->validate([
+            'title' => 'required|min:3',
+            'author' => 'required|min:3',
+            'year' => 'required|integer|min:1900|max:2100'
+        ]);
+
+        // 2. cari buku by ID
+        $book = Book::findOrFail($id);
+
+        // update data buku
+        $book->update($validated);
+
+        // 3. arahkan ke halaman index
+        return redirect()->route('book.index')->with('success', 'Success updated data book');
     }
 
     /**
