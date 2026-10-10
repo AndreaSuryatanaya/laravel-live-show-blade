@@ -46,43 +46,15 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 text-sm">
-                        {{-- @foreach ($book as $item)
-                            <tr class="hover:bg-gray-50/50 transition">
-                                <td class="py-3 px-4 ps-6 font-semibold text-gray-500">{{ $loop->iteration }}</td>
-                                <td class="py-3 px-4 font-medium text-gray-900">{{ $item->title }}</td>
-                                <td class="py-3 px-4 text-gray-500">{{ $item->author }}</td>
-                                <td class="py-3 px-4">
-                                    <span
-                                        class="px-2.5 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-md border border-gray-200">
-                                        {{ $item->publish_year }}
-                                    </span>
-                                </td>
-                                <td class="py-3 px-4 text-end pe-6">
-                                    <!-- Tombol Edit & Delete Berjajar Ramping ke Samping -->
-                                    <div class="flex items-center justify-end gap-2">
-                                        <!-- Tombol Edit -->
-                                        <a href="{{ route('book.edit', $item['id'] ?? $item->id) }}"
-                                            class="p-2 text-amber-600 hover:bg-amber-50 rounded-lg transition"
-                                            title="Edit">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-
-                                        <!-- Form Tombol Delete -->
-                                        <form action="{{ route('book.destroy', $item['id'] ?? $item->id) }}"
-                                            method="POST" class="inline-block m-0"
-                                            onsubmit="return confirm('Are you sure, Delete ?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
-                                                title="Delete">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
+                        @foreach ($book as $item)
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->author }}</td>
+                                <td>{{ $item->year }}</td>
+                                <td>Edit | Delete</td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>

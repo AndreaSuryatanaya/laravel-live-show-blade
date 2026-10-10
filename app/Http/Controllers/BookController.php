@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BookController extends Controller
 {
@@ -11,7 +12,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('book.book');
+        // Mengambil semua data buku dari tabel 'book'
+        $book = Book::all();
+        return view('book.book', compact('book')); // Mengirim data buku ke view 'book.book'
     }
 
     /**
