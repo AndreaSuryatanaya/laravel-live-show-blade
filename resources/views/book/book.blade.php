@@ -46,7 +46,7 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 text-sm">
-                        @foreach ($book as $item)
+                        {{-- @foreach ($book as $item)
                             <tr class="hover:bg-gray-50/50 transition">
                                 <td class="py-3 px-4 ps-6 font-semibold text-gray-500">{{ $loop->iteration }}</td>
                                 <td class="py-3 px-4 font-medium text-gray-900">{{ $item->title }}</td>
@@ -82,7 +82,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
